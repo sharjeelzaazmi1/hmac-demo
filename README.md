@@ -153,11 +153,6 @@ This will return the **Base64-encoded HMAC** in the response.
 
 - **Rate Limiting**: Consider applying **rate-limiting** to your APIs to prevent abuse, especially for endpoints that require HMAC generation.
 
----
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
