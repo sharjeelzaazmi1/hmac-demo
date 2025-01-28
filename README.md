@@ -19,7 +19,7 @@ This project demonstrates how to implement **HMAC (Hash-based Message Authentica
 - **Spring Boot Setup**: Easy-to-setup Spring Boot application with minimal dependencies.
 - **Secure API Endpoints**: Protect sensitive API endpoints using HMAC.
 - **Base64-encoded HMAC**: HMACs are Base64-encoded for easier transmission.
-
+- **Protected Resources**: A protected endpoint that requires HMAC authentication for access.
 ## Tech Stack
 
 - **Spring Boot** (3.x)
@@ -83,14 +83,14 @@ src
 
 ## Endpoints
 
-### 1. **POST /hmac/generate**
+### 1. **GET /hmac/generate**
 
 This endpoint generates the HMAC for a given request body using the HMAC-SHA256 algorithm and a shared secret key.
 
 #### Request:
 
 - **URL**: `http://localhost:8080/hmac/generate`
-- **Method**: `POST`
+- **Method**: `GET`
 - **Body** (raw text or JSON):
   - Example Body:
     ```json
@@ -112,6 +112,33 @@ If the HMAC generation fails, an error message will be returned:
   "error": "Error generating HMAC: <error_message>"
 }
 ```
+
+### 2. **GET /hmac/generate**
+
+This endpoint generates the HMAC for a given request body using the HMAC-SHA256 algorithm and a shared secret key.
+
+#### Request:
+
+- **URL**: `http://localhost:8080/hmac/protected-resource`
+- **Method**: `GET`
+- **Body** (raw text or JSON):
+  - Example Body:
+    ```json
+    "Data to be authenticated"
+    ```
+- **Header**:    X-HMAC:NTzGucN2Bp0e1jPrFgTT4sK6/LhR7o9c2FwhvvquK1U=
+
+#### Response:
+
+The response will return the **OK 200**:
+
+```
+"This is a protected resource!"
+```
+
+If the authentication fails, an error message will be returned with **Unauthorized/Invalid HMAC 400**::
+
+
 
 ## Testing the API
 
