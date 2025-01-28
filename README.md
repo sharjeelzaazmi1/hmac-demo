@@ -113,7 +113,7 @@ If the HMAC generation fails, an error message will be returned:
 }
 ```
 
-### 2. **GET /hmac/generate**
+### 2. **GET /hmac/protected-resource**
 
 This endpoint generates the HMAC for a given request body using the HMAC-SHA256 algorithm and a shared secret key.
 
